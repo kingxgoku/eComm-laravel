@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,11 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/logout', function () {
+    Session::forget('user');
+    return redirect('/');
+});
 
 
 Route::view('/login','login');
 Route::post('/login',[UserController::class,'login']);
 Route::get('/',[ProductController::class, 'index']);
+Route::get('details/{id}',[ProductController::class, 'details']);
+Route::get('search',[ProductController::class, 'search']);
+Route::post('add-to-cart',[ProductController::class,'addToCart']);
