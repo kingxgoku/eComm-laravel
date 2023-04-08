@@ -32,7 +32,7 @@ if (Session::has('user')) {
             </form>
 
             <div class="d-flex gap-2 align-items-center">
-                <a href="#" class="btn btn-outline-secondary">Cart({{$total}})</a>
+                <a href="/cart-list" class="btn btn-outline-secondary">Cart({{$total}})</a>
                 @if(Session::has('user'))
                 <div class="nav-item dropdown text-dark">
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
